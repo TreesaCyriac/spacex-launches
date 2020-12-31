@@ -38,7 +38,7 @@
             <div class="program-list" *ngIf="!loading && allPrograms.length">
                 <div class="program-item" *ngFor="let pgm of allPrograms">
                     <div class="img-wrapper">
-                        <img [src]="pgm.links.mission_patch">
+                        <img [src]="pgm.links.mission_patch_small">
                     </div>
                     <div class="title">{{pgm.mission_name}} # {{pgm.flight_number}}</div>
                     <div class="item-row">
