@@ -1,0 +1,74 @@
+<div class="view-wrapper">
+    <h1>SpaceX Launch Programs</h1>
+    <div class="programs-wrapper">
+        <div class="filters-block">
+            <h3>Filters</h3>
+            <div class="filters-item">
+                <div class="filter-list-title">
+                    &nbsp;&nbsp;&nbsp;Launch Year&nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="years-block">
+                    <div *ngFor="let year of launchYears">
+                        <span (click)="onYearClick(year)" [ngClass]="{'selected': year.value === filterWrapper.launch_year}">{{year.value}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="filters-item">
+                <div class="filter-list-title">
+                    &nbsp;&nbsp;&nbsp;Successful Launch&nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="years-block">
+                    <div *ngFor="let opt of launchOptionsList">
+                        <span (click)="onLaunchClick(opt)" [ngClass]="{'selected': opt.value === filterWrapper.launch_success}">{{opt.label}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="filters-item">
+                <div class="filter-list-title">
+                    &nbsp;&nbsp;&nbsp;Successful Landing&nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="years-block">
+                    <div *ngFor="let opt of landOptionsList">
+                        <span (click)="onLandingClick(opt)" [ngClass]="{'selected': opt.value === filterWrapper.land_success}">{{opt.label}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="programs-block">
+            <div class="program-list" *ngIf="!loading && allPrograms.length">
+                <div class="program-item" *ngFor="let pgm of allPrograms">
+                    <div class="img-wrapper">
+                        <img [src]="pgm.links.mission_patch">
+                    </div>
+                    <div class="title">{{pgm.mission_name}} # {{pgm.flight_number}}</div>
+                    <div class="item-row">
+                        <label>Mission Ids:</label>
+                        <ul>
+                            <li *ngFor="let id of pgm.mission_id">
+                                {{id}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item-row">
+                        <label>Launch Year: &nbsp;</label>
+                        <span>{{pgm.launch_year}}</span>
+                    </div>
+                    <div class="item-row">
+                        <label>Successful Launch: &nbsp;</label>
+                        <span>{{pgm.launch_success}}</span>
+                    </div>
+                    <div class="item-row">
+                        <label>Successful Landing: &nbsp;</label>
+                        <span>{{pgm.launch_landing}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="no-pgms-block" *ngIf="!loading && !allPrograms.length">No Launch Programs Available</div>
+            <div *ngIf="loading">
+                <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                  <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
