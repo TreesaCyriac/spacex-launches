@@ -1,9 +1,8 @@
 .view-wrapper {
-    background-color: #ededed;
-    height: 100vh;
-    overflow-x: hidden;
-    font-family: sans-serif;
-    padding: 0px 20px;
+    h2 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 
     .programs-wrapper {
         width: 100%;
@@ -52,7 +51,7 @@
 
                 .img-wrapper {
                     width: 100%;
-                    height: 250px;
+                    height: 200px;
                     max-width: 250px;
                     background-color: #f4f4f4;
                     text-align: center;
@@ -76,31 +75,36 @@
         width: 20%;
         background-color: white;
         height: fit-content;
-        padding: 0px 10px;
+        padding: 10px;
 
         h3 {
-            font-size: 22px;
+            margin-top: 0px;
+            margin-bottom: 0px;
         }
 
         .filters-item {
-            margin-top: 20px;
+            width: 85%;
+            display: block;
+            margin: 10px auto;
 
             .filter-list-title {
                 text-align: center;
                 border-bottom: 1px dotted;
-                width: 80%;
-                margin-left: 10%;
             }
     
             .years-block {
                 display: flex;
                 flex-wrap: wrap;
+                font-size: 15px;
 
                 div {
-                    text-align: center;
                     height: 18px;
                     margin: 15px 0px;
                     width: 50%;
+                }
+
+                div:nth-child(even) {
+                    text-align: right;
                 }
     
                 span {
